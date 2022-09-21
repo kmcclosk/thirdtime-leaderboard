@@ -15,7 +15,11 @@ The backend datastore is a sqlite database. This database is queried through Pri
 
 # How to run
 
-This is a standard NextJS app. To run this code locally use 'yarn run dev'
+`yarn install`
+`yarn prisma migrate reset`
+`yarn run dev`
+
+`yarn prisma migrate reset` will seed the database. If you skip this, all queries will return "No results".
 
 # Interacting w/ the app
 
