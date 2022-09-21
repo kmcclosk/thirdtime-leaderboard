@@ -44,8 +44,6 @@ async function main() {
             rank++;
         }
 
-        // console.log('entries', entries);
-
         const event = await prisma.event.create(
             {
                 data: {

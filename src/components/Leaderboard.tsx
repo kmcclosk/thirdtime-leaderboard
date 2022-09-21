@@ -89,12 +89,8 @@ export const Leaderboard = (
     }
   );
 
-  console.log('page', pageIndex, pageSize);
-
   const [sorting, setSorting] = useState<SortingState>([]);
   const sortOrder = sorting[0]?.id === 'rank' && sorting[0]?.desc ? -1 : 1;
-
-  console.log('sorting', sorting, sortOrder);
 
   const res = trpc.useQuery(
     [
@@ -111,8 +107,6 @@ export const Leaderboard = (
     }
   );
 
-  console.log('res', res);
-
   const { isLoading, data } = res;
 
   const defaultData = useMemo(() => [], []);
@@ -127,9 +121,7 @@ export const Leaderboard = (
     [pageIndex, pageSize],
   );
 
-  // const total = -1; // data?.event?._count?.entries;
-  const pageCount = data?.pageCount; // total ? Math.ceil(total / pageSize) : -1;
-  console.log('pageCount', pageCount);
+  const pageCount = data?.pageCount;
 
   const table = useReactTable(
     {
@@ -249,7 +241,3 @@ export const Leaderboard = (
     </Skeleton>
   );
 };
-
-Leaderboard.whyDidYouRender = true;
-
-// <button className="btn">Page {page} of {total}</button>

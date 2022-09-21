@@ -26,19 +26,7 @@ export const eventsRouter = createRouter()
           sortOrder: numeric(z.number().refine((val) => val === -1 || val === 1).default(1)),
         }
       ),
-      /*
-      input: z.object(
-        {
-          eventName: z.string(),
-          view: z.enum(['hundred', 'global']).default('global'),
-          page: z.number().min(0).default(0),
-          sortOrder: z.number().refine((val) => val === -1 || val === 1).default(1),
-        }
-        ),
-      */
       async resolve({ input, ctx }) {
-
-        console.log('input', input);
 
         const {
           eventName,
